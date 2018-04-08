@@ -14,6 +14,9 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname,'public', 'index.html'));
  });
 
- const CoinRouter = require('./routes/CoinRouter');
+const CoinRouter = require('./routes/CoinRouter');
+const SongRouter = require('./routes/SongRouter');
+
 
 app.use('/coins', CoinRouter);
+app.use('/songs', SongRouter);

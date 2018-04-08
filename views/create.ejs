@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>EJS Engine</title>
+    <link rel="stylesheet" href="/static/sv.css">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Add Song</h1>
+        <form method="post" action="/songs/post">
+          <div class="form-group">
+            <label for="item">Song Name</label>
+            <input type="text" class="form-control" id="name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="item">Song Lyrics</label>
+            <input type="text" class="form-control" id="lyrics" name="lyrics">
+          </div>
+          <button type="submit">Submit Song</button>
+        </form>
+    </div>
+  </body>
+</html>
