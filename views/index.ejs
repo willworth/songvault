@@ -1,16 +1,29 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>SV  EJS Engine</title>
-    <link rel="stylesheet" href="../static/sv.css">
+    <title>Main page SongVault</title>
+    <link rel="stylesheet" href="/static/sv.css">
   </head>
   <body>
-    <div class="container">
-      
-      <h1> Songvault</h1>
-      <p>This is coming from the index.ejs file </p>
-    </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td><b>Song name</b></td>
+            <td><b>Song lyric</b></td>
+            <td><b>Action</b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i < songs.length; i++) { %>
+          <tr>
+            <td><%= songs[i].name %></td>
+            <td><%= songs[i].lyrics %></td>
+            <td><a href="" >Edit</a></td>
+            <td><a href="" >Delete</a></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
   </body>
 </html>

@@ -1,22 +1,30 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-app.set('view engine', 'ejs');
+const path = require('path');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/songvault');
+
+const SongRouter = require('./routes/SongRouter');
+
 app.use(express.static('public'));
+app.set('view engine', 'ejs');
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
-app.listen(port, function(){
-  console.log('songvault server running');
-});
-
+app.use('/songs', SongRouter);
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname,'public', 'index.html'));
  });
 
-const CoinRouter = require('./routes/CoinRouter');
-const SongRouter = require('./routes/SongRouter');
+app.listen(port, function(){
+  console.log('💪 💪 SONGVAULT💪 💪 server running on ', port);
+});
 
 
-app.use('/coins', CoinRouter);
-app.use('/songs', SongRouter);
+
